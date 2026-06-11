@@ -653,45 +653,88 @@ select:focus ~ .select-arrow {
    ========================================================================== */
 @media (max-width: 480px) {
     body {
-        padding: 12px;
+        padding: 8px;
     }
 
     .card {
-        padding: 30px 20px;
+        padding: 22px 16px;
         border-radius: var(--border-radius-md);
     }
 
+    .card-header {
+        margin-bottom: 20px;
+    }
+
+    .gift-icon-container {
+        width: 54px;
+        height: 54px;
+        margin-bottom: 12px;
+    }
+
+    .gift-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    .gift-glow {
+        width: 44px;
+        height: 44px;
+    }
+
     .title {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        margin-bottom: 6px;
     }
 
     .description {
-        font-size: 0.85rem;
+        font-size: 0.82rem;
+    }
+
+    .form-group {
+        margin-bottom: 14px;
+    }
+
+    label {
+        font-size: 0.78rem;
+        margin-bottom: 4px;
     }
 
     input[type="text"],
     input[type="email"],
     select {
-        padding: 14px 14px 14px 44px;
+        padding: 11px 12px 11px 40px;
         font-size: 16px; /* Prevent iOS Safari auto-zoom on focus */
     }
 
     .input-icon {
         left: 12px;
-        width: 18px;
-        height: 18px;
+        width: 16px;
+        height: 16px;
     }
 
     .submit-btn {
-        padding: 15px;
-        font-size: 0.9rem;
+        padding: 12px;
+        font-size: 0.85rem;
+        margin-top: 5px;
     }
     
     .modal-card {
-        padding: 30px 20px;
+        padding: 25px 16px;
+        width: 92%;
     }
     
     .modal-title {
-        font-size: 1.4rem;
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+    }
+
+    .modal-message {
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+    }
+
+    .modal-btn {
+        padding: 12px;
+        font-size: 0.85rem;
     }
 }
