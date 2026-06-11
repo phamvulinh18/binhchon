@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Điền thông tin bên dưới để tham gia chương trình quay thưởng Locket Gold vô cùng hấp dẫn. Cơ hội nhận ngay Locket Gold miễn phí!">
+    <title>🎁 QUAY THƯỞNG LOCKET GOLD</title>
+    
+    <!-- Google Fonts: Montserrat & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-gradient-overlay"></div>
+    <div class="glow-effect top-left"></div>
+    <div class="glow-effect bottom-right"></div>
+
+    <div class="container">
+        <!-- Main Form Card -->
+        <main class="card animate-fade-in">
+            <!-- Header section with Gift Icon -->
+            <div class="card-header">
+                <div class="gift-icon-container">
+                    <svg class="gift-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Box body -->
+                        <path d="M20 12v10H4V12" />
+                        <!-- Cover -->
+                        <path d="M2 7h20v5H2z" />
+                        <!-- Ribbon vertical -->
+                        <path d="M12 22V7" />
+                        <!-- Ribbon horizontal -->
+                        <path d="M12 7H4M12 7h8" />
+                        <!-- Bow left -->
+                        <path d="M12 7c0-2.5-2-4.5-4.5-4.5S3 4.5 3 7h9z" />
+                        <!-- Bow right -->
+                        <path d="M12 7c0-2.5 2-4.5 4.5-4.5S21 4.5 21 7h-9z" />
+                    </svg>
+                    <div class="gift-glow"></div>
+                </div>
+                <h1 class="title">QUAY THƯỞNG LOCKET GOLD</h1>
+                <p class="description">Điền thông tin bên dưới để tham gia quay thưởng.</p>
+            </div>
+
+            <!-- Registration Form -->
+            <form id="luckyDrawForm" novalidate>
+                <!-- Fullname field -->
+                <div class="form-group">
+                    <label for="fullname">Họ và tên <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <input type="text" id="fullname" name="fullname" placeholder="Nhập họ và tên của bạn" required autocomplete="name">
+                    </div>
+                    <div class="error-msg" id="fullnameError">Vui lòng nhập họ và tên của bạn</div>
+                </div>
+
+                <!-- Email field -->
+                <div class="form-group">
+                    <label for="email">Gmail <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <input type="email" id="email" name="email" placeholder="ví dụ: nguoidung@gmail.com" required autocomplete="email">
+                    </div>
+                    <div class="error-msg" id="emailError">Vui lòng nhập địa chỉ Gmail hợp lệ</div>
+                </div>
+
+                <!-- Zalo phone number field -->
+                <div class="form-group">
+                    <label for="zalo">Số điện thoại Zalo <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <input type="text" id="zalo" name="zalo"  required inputmode="tel" autocomplete="tel">
+                    </div>
+                    <div class="error-msg" id="zaloError">Vui lòng nhập số điện thoại Zalo hợp lệ</div>
+                </div>
+
+                <!-- Status field -->
+                <div class="form-group">
+                    <label for="status">Bạn đã mua Locket Gold Shop mình chưa? <span class="required">*</span></label>
+                    <div class="input-wrapper">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <select id="status" name="status" required>
+                            <option value="" disabled selected hidden>Chọn câu trả lời của bạn</option>
+                            <option value="Đã mua">Đã mua</option>
+                            <option value="Chưa mua">Chưa mua</option>
+                        </select>
+                        <div class="select-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="error-msg" id="statusError">Vui lòng chọn trạng thái mua hàng</div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="submitBtn" class="submit-btn">
+                    <span class="btn-text">THAM GIA QUAY THƯỞNG</span>
+                    <span class="btn-loader">
+                        <svg class="spinner" viewBox="0 0 50 50">
+                            <circle class="path" cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+                        </svg>
+                    </span>
+                </button>
+            </form>
+        </main>
+    </div>
+
+    <!-- Notification Modal -->
+    <div id="resultModal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <button id="closeModalCross" class="modal-close-cross" aria-label="Đóng">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            
+            <div class="modal-icon-container" id="modalIconContainer">
+                <!-- Icon will be injected via JS -->
+            </div>
+            
+            <h2 class="modal-title" id="modalTitle">Đăng ký thành công!</h2>
+            <p class="modal-message" id="modalMessage">Thông tin của bạn đã được ghi nhận. Hãy chuẩn bị tinh thần nhận quà nhé! 🎉</p>
+            
+            <button id="closeModalBtn" class="modal-btn">XÁC NHẬN</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

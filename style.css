@@ -1,0 +1,697 @@
+/* ==========================================================================
+   CSS Variables & Theme Definitions
+   ========================================================================== */
+:root {
+    --bg-dark: #0A0A0C;
+    --card-bg: rgba(21, 21, 27, 0.85);
+    --card-border: rgba(191, 149, 63, 0.25);
+    --card-border-focus: rgba(252, 246, 186, 0.6);
+    
+    /* Premium Metallic Gold Palette */
+    --gold-primary: #D4AF37;
+    --gold-light: #FCF6BA;
+    --gold-dark: #AA771C;
+    --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+    --gold-gradient-hover: linear-gradient(135deg, #AA771C 0%, #FBF5B7 25%, #B38728 50%, #FCF6BA 75%, #BF953F 100%);
+    
+    /* Neutral colors */
+    --text-primary: #FFFFFF;
+    --text-secondary: #A0A0B0;
+    --text-muted: #6B6B7C;
+    --input-bg: #16161D;
+    --input-border: #2C2C35;
+    
+    /* Feedback colors */
+    --error: #FF4A4A;
+    --error-bg: rgba(255, 74, 74, 0.1);
+    --success: #2ECC71;
+    --success-bg: rgba(46, 204, 113, 0.1);
+    
+    /* Fonts */
+    --font-main: 'Montserrat', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    
+    /* Layout */
+    --transition-speed: 0.3s;
+    --border-radius-lg: 24px;
+    --border-radius-md: 12px;
+}
+
+/* ==========================================================================
+   Base & Reset Styles
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent; /* Disable tap highlight gray box on mobile */
+}
+
+html, body {
+    height: 100%;
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+}
+
+/* Background Effects */
+.bg-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #1C1C24 0%, #0A0A0C 100%);
+    z-index: -3;
+}
+
+.glow-effect {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.glow-effect.top-left {
+    top: -50px;
+    left: -50px;
+    background: var(--gold-primary);
+}
+
+.glow-effect.bottom-right {
+    bottom: -50px;
+    right: -50px;
+    background: var(--gold-dark);
+}
+
+/* ==========================================================================
+   Layout Containers
+   ========================================================================== */
+.container {
+    width: 100%;
+    max-width: 500px;
+    z-index: 1;
+    position: relative;
+}
+
+/* Premium Card */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius-lg);
+    padding: 40px 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 
+                0 0 50px rgba(191, 149, 63, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shiny Border Effect on top of card */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gold-gradient);
+}
+
+/* ==========================================================================
+   Card Header
+   ========================================================================== */
+.card-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+/* Gift Icon */
+.gift-icon-container {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gift-icon {
+    width: 44px;
+    height: 44px;
+    color: var(--gold-primary);
+    filter: drop-shadow(0 0 8px rgba(191, 149, 63, 0.6));
+    animation: floatGift 3s ease-in-out infinite;
+    z-index: 2;
+}
+
+.gift-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(252, 246, 186, 0.3) 0%, rgba(191, 149, 63, 0) 70%);
+    animation: pulseGlow 2s ease-in-out infinite;
+    z-index: 1;
+}
+
+/* Header Text */
+.title {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   Form Fields & Controls
+   ========================================================================== */
+.form-group {
+    margin-bottom: 24px;
+    position: relative;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+}
+
+.required {
+    color: var(--gold-primary);
+}
+
+/* Input Wrapper & Icons */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 16px;
+    width: 20px;
+    height: 20px;
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: color var(--transition-speed) ease;
+}
+
+/* Text Inputs and Select Elements */
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    background-color: var(--input-bg);
+    border: 1.5px solid var(--input-border);
+    border-radius: var(--border-radius-md);
+    padding: 16px 16px 16px 52px;
+    font-size: 0.95rem;
+    font-family: var(--font-main);
+    color: var(--text-primary);
+    transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Placeholders */
+input::placeholder {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+/* Focus State */
+input:focus,
+select:focus {
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 12px rgba(191, 149, 63, 0.2), 
+                inset 0 1px 2px rgba(0, 0, 0, 0.2);
+    background-color: rgba(22, 22, 29, 0.95);
+}
+
+input:focus + .input-icon,
+select:focus + .input-icon {
+    color: var(--gold-primary);
+}
+
+/* Dropdown specific styles */
+select {
+    cursor: pointer;
+    padding-right: 48px;
+}
+
+/* Dropdown Option List styling override for modern look where supported */
+select option {
+    background-color: #16161D;
+    color: var(--text-primary);
+    padding: 12px;
+}
+
+select:invalid {
+    color: var(--text-muted);
+}
+
+.select-arrow {
+    position: absolute;
+    right: 16px;
+    width: 20px;
+    height: 20px;
+    color: var(--text-muted);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--transition-speed) ease;
+}
+
+select:focus ~ .select-arrow {
+    color: var(--gold-primary);
+}
+
+/* Error Messages */
+.error-msg {
+    font-size: 0.75rem;
+    color: var(--error);
+    margin-top: 6px;
+    font-weight: 500;
+    display: none;
+    animation: slideDown 0.2s ease-out;
+}
+
+/* Error validation states */
+.form-group.has-error input,
+.form-group.has-error select {
+    border-color: var(--error);
+    box-shadow: 0 0 8px rgba(255, 74, 74, 0.15);
+}
+
+.form-group.has-error .error-msg {
+    display: block;
+}
+
+.form-group.has-error .input-icon {
+    color: var(--error);
+}
+
+/* ==========================================================================
+   Submit Button
+   ========================================================================== */
+.submit-btn {
+    width: 100%;
+    background: var(--gold-gradient);
+    border: none;
+    border-radius: var(--border-radius-md);
+    padding: 18px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: var(--font-main);
+    color: #000000;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 6px 20px rgba(191, 149, 63, 0.3);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+/* Hover & Active states */
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(191, 149, 63, 0.5), 
+                0 0 15px rgba(252, 246, 186, 0.3);
+    background: var(--gold-gradient-hover);
+}
+
+.submit-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(191, 149, 63, 0.2);
+}
+
+/* Loader Styles within Button */
+.btn-loader {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.submit-btn.is-loading .btn-text {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.submit-btn.is-loading .btn-loader {
+    display: block;
+}
+
+.submit-btn.is-loading {
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+/* SVG Spinner animation */
+.spinner {
+    animation: rotate 2s linear infinite;
+    width: 26px;
+    height: 26px;
+}
+
+.spinner .path {
+    stroke: #000000;
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Modals & Notifications
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius-lg);
+    width: 90%;
+    max-width: 420px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(191, 149, 63, 0.1);
+    position: relative;
+    transform: scale(0.8);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.modal-overlay.show .modal-card {
+    transform: scale(1);
+}
+
+/* Close Cross button */
+.modal-close-cross {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close-cross:hover {
+    color: var(--gold-primary);
+    transform: rotate(90deg);
+}
+
+/* Modal Icons (Success / Error) */
+.modal-icon-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.modal-icon-container.success {
+    background-color: var(--success-bg);
+    color: var(--success);
+    border: 1.5px solid rgba(46, 204, 113, 0.3);
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.2);
+}
+
+.modal-icon-container.error {
+    background-color: var(--error-bg);
+    color: var(--error);
+    border: 1.5px solid rgba(255, 74, 74, 0.3);
+    box-shadow: 0 0 20px rgba(255, 74, 74, 0.2);
+}
+
+.modal-icon-container svg {
+    width: 40px;
+    height: 40px;
+}
+
+.modal-title {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.modal-card.success-theme .modal-title {
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modal-card.error-theme .modal-title {
+    color: var(--error);
+}
+
+.modal-message {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Modal action button */
+.modal-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-family: var(--font-main);
+    letter-spacing: 1px;
+    transition: all var(--transition-speed) ease;
+}
+
+.modal-card.success-theme .modal-btn {
+    background: var(--gold-gradient);
+    border: none;
+    color: #000000;
+    box-shadow: 0 6px 15px rgba(191, 149, 63, 0.2);
+}
+
+.modal-card.success-theme .modal-btn:hover {
+    background: var(--gold-gradient-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(191, 149, 63, 0.4);
+}
+
+.modal-card.error-theme .modal-btn {
+    background: transparent;
+    border: 1.5px solid var(--error);
+    color: var(--error);
+}
+
+.modal-card.error-theme .modal-btn:hover {
+    background: var(--error);
+    color: #FFFFFF;
+    box-shadow: 0 6px 15px rgba(255, 74, 74, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Utility Hidden class */
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes floatGift {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(3deg);
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.5;
+    }
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 150;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -35;
+    }
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -124;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+
+    .card {
+        padding: 30px 20px;
+        border-radius: var(--border-radius-md);
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .description {
+        font-size: 0.85rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select {
+        padding: 14px 14px 14px 44px;
+        font-size: 16px; /* Prevent iOS Safari auto-zoom on focus */
+    }
+
+    .input-icon {
+        left: 12px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .submit-btn {
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+    
+    .modal-card {
+        padding: 30px 20px;
+    }
+    
+    .modal-title {
+        font-size: 1.4rem;
+    }
+}
