@@ -23,6 +23,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModalBtn = document.getElementById('closeModalBtn');
     const closeModalCross = document.getElementById('closeModalCross');
 
+    // Run deadline check (20:00 June 11, 2026 GMT+7)
+    const checkDeadline = () => {
+        const now = new Date();
+        const deadline = new Date('2026-06-11T20:00:00+07:00');
+        if (now >= deadline) {
+            fullnameInput.disabled = true;
+            emailInput.disabled = true;
+            zaloInput.disabled = true;
+            statusSelect.disabled = true;
+            submitBtn.disabled = true;
+            
+            form.classList.add('hidden');
+            
+            // Insert expired banner
+            if (!document.getElementById('expiredNotice')) {
+                const notice = document.createElement('div');
+                notice.id = 'expiredNotice';
+                notice.className = 'expired-notice';
+                notice.innerHTML = `
+                    <div class="expired-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                    </div>
+                    <h3>HẾT HẠN THAM GIA</h3>
+                    <p>Chương trình quay thưởng đã kết thúc vào lúc <strong>20:00 ngày 11/06/2026</strong>. Hẹn gặp lại bạn ở các chương trình tiếp theo!</p>
+                `;
+                form.parentNode.insertBefore(notice, form);
+            }
+            return true;
+        }
+        return false;
+    };
+
+    // Check immediately on page load
+    checkDeadline();
+
     // Validation Regex (Gmail check: name@gmail.com)
     const gmailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/i;
     // Phone Regex: Starts with 0, followed by 9 digits (total 10 digits)
@@ -193,6 +232,11 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        // Check deadline again before processing
+        if (checkDeadline()) {
+            return;
+        }
 
         // Run validation
         if (!validateForm()) {

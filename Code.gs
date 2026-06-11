@@ -22,6 +22,16 @@ function doPost(e) {
       }, headers);
     }
 
+    // Check deadline (20:00 June 11, 2026 GMT+7)
+    var deadline = new Date("2026-06-11T20:00:00+07:00");
+    var now = new Date();
+    if (now >= deadline) {
+      return createJsonResponse({
+        status: "error",
+        message: "Chương trình quay thưởng đã kết thúc lúc 20:00 ngày 11/06/2026."
+      }, headers);
+    }
+
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     
     // Auto-initialize headers if the sheet is empty
